@@ -15,8 +15,10 @@ public class DataBaseConfig {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         return builder
                 .setType(EmbeddedDatabaseType.HSQL)
-                .addScript("classpath:db/schema.sql")
-                .addScript("classpath:db/data.sql")
+                .addScript("classpath:/db/schema-clients.sql")
+                .addScript("classpath:/db/schema-users.sql")
+                .addScript("classpath:/db/data-clients.sql")
+                .addScript("classpath:/db/data-users.sql")
                 .build();
     }
 
