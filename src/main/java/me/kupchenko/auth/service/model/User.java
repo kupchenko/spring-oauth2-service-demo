@@ -2,6 +2,7 @@ package me.kupchenko.auth.service.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +20,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "users")
+@ToString(exclude = "password")
 @NoArgsConstructor
 public class User {
     @Id

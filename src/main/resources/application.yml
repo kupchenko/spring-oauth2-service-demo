@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+
+keystore:
+  alias: local
+  password: localpass
+  file:
+    name: local.jks

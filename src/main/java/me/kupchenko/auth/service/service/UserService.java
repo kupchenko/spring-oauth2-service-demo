@@ -25,7 +25,6 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.info("Loading user for username: {}", username);
         try {
-            userRepository.findAll().forEach(System.out::println);
             User user = userRepository.findByName(username)
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
@@ -44,4 +43,11 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException(ex.getMessage());
         }
     }
+
+    public User findUserByUsername(String username) {
+        return userRepository.findByName(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    }
+
+
 }
