@@ -9,7 +9,7 @@ VALUES
 	'password,authorization_code,refresh_token,client_credentials',
 	'http://localhost:9001,http://localhost:9001,http://localhost:9001,http://localhost:9001',
 	null,
-	36000,
+	60,
 	36000,
 	null,
 	true);

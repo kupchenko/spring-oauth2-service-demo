@@ -3,6 +3,7 @@ package me.kupchenko.auth.service.service;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.kupchenko.auth.service.dao.UserRepository;
+import me.kupchenko.auth.service.dto.SecurityUserDetails;
 import me.kupchenko.auth.service.model.Role;
 import me.kupchenko.auth.service.model.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -35,9 +36,12 @@ public class UserService implements UserDetailsService {
                     .collect(Collectors.toList());
 
             log.info("Got user: {}", user);
-            return new org.springframework.security.core.userdetails.User(username,
-                    user.getPassword(),
-                    grantedAuthorities);
+            return SecurityUserDetails.builder()
+                    .id(user.getId())
+                    .username(user.getName())
+                    .password(user.getPassword())
+                    .authorities(grantedAuthorities)
+                    .build();
         } catch (Exception ex) {
             log.warn("Error retrieving user with message: {}", ex.getMessage());
             throw new UsernameNotFoundException(ex.getMessage());
