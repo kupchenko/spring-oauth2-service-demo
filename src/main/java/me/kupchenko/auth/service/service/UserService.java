@@ -6,6 +6,7 @@ import me.kupchenko.auth.service.dao.UserRepository;
 import me.kupchenko.auth.service.dto.SecurityUserDetails;
 import me.kupchenko.auth.service.model.Role;
 import me.kupchenko.auth.service.model.User;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
