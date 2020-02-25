@@ -1,35 +1,23 @@
-buildscript {
-    ext {
-        springBootVersion = '2.2.4.RELEASE'
-    }
-    repositories {
-        mavenLocal()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+ext {
+    slf4jVersion = "1.7.25"
 }
 
 subprojects {
-    apply plugin: 'java'
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
+    apply plugin: "java"
+    // if both subprojects share some Spring related dependencies, apply the Spring `io.spring.dependency-management` here.
 
-    group = 'me.kupchenko'
-    version = '0.0.1-SNAPSHOT'
-    sourceCompatibility = '1.8'
+    group = 'com.xxx.yyy'
+    version = '1.0'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
     repositories {
-        mavenCentral()
+        jcenter()
     }
 
     dependencies {
         compileOnly 'org.projectlombok:lombok:1.18.12'
         annotationProcessor 'org.projectlombok:lombok:1.18.12'
-    }
-
-    bootJar {
-        mainClassName = 'me.kupchenko.auth.service.AuthServiceApplication'
     }
 }
