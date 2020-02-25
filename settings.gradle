@@ -1,4 +1,2 @@
 rootProject.name = 'auth-service'
-include 'spring-oauth2-service-api'
-include 'spring-oauth2-service-impl'
-
+include 'auth-service-api', 'auth-service-impl'
