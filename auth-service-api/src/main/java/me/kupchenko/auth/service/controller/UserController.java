@@ -1,6 +1,6 @@
-package me.kupchenko.auth.service.api.controller;
+package me.kupchenko.auth.service.controller;
 
-import me.kupchenko.auth.service.api.model.User;
+import me.kupchenko.auth.service.model.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

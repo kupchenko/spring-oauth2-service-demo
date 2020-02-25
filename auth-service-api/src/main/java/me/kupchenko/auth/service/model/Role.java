@@ -1,4 +1,4 @@
-package me.kupchenko.auth.service.api.model;
+package me.kupchenko.auth.service.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

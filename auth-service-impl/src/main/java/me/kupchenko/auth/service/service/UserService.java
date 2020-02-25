@@ -1,11 +1,11 @@
-package me.kupchenko.auth.service.api.service;
+package me.kupchenko.auth.service.service;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.kupchenko.auth.service.api.dao.UserRepository;
-import me.kupchenko.auth.service.api.dto.SecurityUserDetails;
-import me.kupchenko.auth.service.api.model.Role;
-import me.kupchenko.auth.service.api.model.User;
+import me.kupchenko.auth.service.dao.UserRepository;
+import me.kupchenko.auth.service.dto.SecurityUserDetails;
+import me.kupchenko.auth.service.model.Role;
+import me.kupchenko.auth.service.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

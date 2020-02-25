@@ -1,4 +1,4 @@
-package me.kupchenko.auth.service.api;
+package me.kupchenko.auth.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

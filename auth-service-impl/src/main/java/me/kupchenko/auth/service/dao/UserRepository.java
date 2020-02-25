@@ -1,6 +1,6 @@
-package me.kupchenko.auth.service.api.dao;
+package me.kupchenko.auth.service.dao;
 
-import me.kupchenko.auth.service.api.model.User;
+import me.kupchenko.auth.service.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package me.kupchenko.auth.service.api.config;
+package me.kupchenko.auth.service.config;
 
 import lombok.extern.slf4j.Slf4j;
-import me.kupchenko.auth.service.api.dto.SecurityUserDetails;
+import me.kupchenko.auth.service.dto.SecurityUserDetails;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;

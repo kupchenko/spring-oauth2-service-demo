@@ -1,4 +1,4 @@
-package me.kupchenko.auth.service.api.config;
+package me.kupchenko.auth.service.config;
 
 import org.springframework.security.oauth2.provider.endpoint.FrameworkEndpoint;
 import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;

@@ -1,4 +1,4 @@
-package me.kupchenko.auth.service.api.config;
+package me.kupchenko.auth.service.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;

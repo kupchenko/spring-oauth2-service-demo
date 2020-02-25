@@ -1,4 +1,4 @@
-package me.kupchenko.auth.service.api.dto;
+package me.kupchenko.auth.service.dto;
 
 import lombok.Builder;
 import lombok.Data;

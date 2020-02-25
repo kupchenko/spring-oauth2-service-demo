@@ -1,4 +1,4 @@
-package me.kupchenko.auth.service.api.controller;
+package me.kupchenko.auth.service.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;

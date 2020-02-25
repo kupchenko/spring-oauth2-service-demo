@@ -1,4 +1,4 @@
-package me.kupchenko.auth.service.api.config;
+package me.kupchenko.auth.service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

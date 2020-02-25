@@ -1,6 +1,6 @@
 plugins {
     //apply false - to not apply boot plugin for all subprojects where it is not needed (e.g. auth-service-api)
-    id "org.springframework.boot" version "2.1.1.RELEASE" apply false
+    id "org.springframework.boot" version "2.2.4.RELEASE" apply false
 }
 
 subprojects {
@@ -10,8 +10,8 @@ subprojects {
     group = 'me.kupchenko'
     version = '1.0'
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = 11
+    targetCompatibility = 11
 
     repositories {
         mavenCentral()
