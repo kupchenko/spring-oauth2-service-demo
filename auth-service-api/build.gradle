@@ -1,17 +1,18 @@
 plugins {
     id 'java-library'
-    id "org.springframework.boot" version "2.1.1.RELEASE" apply false
 }
-apply plugin: 'io.spring.dependency-management'
 
+// Spring Boot’s dependency management can be used in a project without applying Spring Boot’s plugin to that project.
+// The SpringBootPlugin class provides a BOM_COORDINATES constant that can be used to import the bom
+// without having to know its group ID, artifact ID, or version.
 dependencyManagement {
     imports {
         mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
     }
 }
 
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    // lib dependencies
 }

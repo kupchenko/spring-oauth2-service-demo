@@ -1,7 +1,4 @@
-plugins {
-    id "org.springframework.boot" version "2.1.1.RELEASE"
-}
-apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
 
 dependencies {
     implementation project(path: ":auth-service-api")

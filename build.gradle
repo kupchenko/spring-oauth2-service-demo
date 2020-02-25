@@ -1,19 +1,20 @@
-ext {
-    slf4jVersion = "1.7.25"
+plugins {
+    //apply false - to not apply boot plugin for all subprojects where it is not needed (e.g. auth-service-api)
+    id "org.springframework.boot" version "2.1.1.RELEASE" apply false
 }
 
 subprojects {
     apply plugin: "java"
-    // if both subprojects share some Spring related dependencies, apply the Spring `io.spring.dependency-management` here.
+    apply plugin: 'io.spring.dependency-management'
 
-    group = 'com.xxx.yyy'
+    group = 'me.kupchenko'
     version = '1.0'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
     repositories {
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
