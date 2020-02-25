@@ -4,9 +4,7 @@ dependencies {
     implementation project(path: ":auth-service-api")
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
 
 
     compile 'org.springframework.security:spring-security-jwt:1.1.0.RELEASE'
