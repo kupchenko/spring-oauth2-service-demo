@@ -1,48 +1,35 @@
-plugins {
-    id 'org.springframework.boot' version '2.2.4.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-    id 'java'
-}
-
-group = 'me.kupchenko'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-
-configurations {
-    developmentOnly
-    runtimeClasspath {
-        extendsFrom developmentOnly
+buildscript {
+    ext {
+        springBootVersion = '2.2.4.RELEASE'
     }
-    compileOnly {
-        extendsFrom annotationProcessor
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
 
-repositories {
-    mavenCentral()
-}
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-//    implementation 'org.springframework.security.oauth:spring-security-oauth2:2.4.0.RELEASE'
-//    implementation 'org.springframework.security:spring-security-jwt:1.1.0.RELEASE'
-    compile 'org.springframework.security:spring-security-jwt:1.1.0.RELEASE'
-    compile 'org.springframework.security.oauth:spring-security-oauth2:2.3.5.RELEASE'
-    implementation 'org.hsqldb:hsqldb'
+    group = 'me.kupchenko'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '1.8'
 
-
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    repositories {
+        mavenCentral()
     }
-    testImplementation 'org.springframework.security:spring-security-test'
-}
 
-test {
-    useJUnitPlatform()
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.12'
+        annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    }
+
+    bootJar {
+        mainClassName = 'me.kupchenko.auth.service.AuthServiceApplication'
+    }
 }

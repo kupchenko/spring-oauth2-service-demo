@@ -6,7 +6,6 @@ import me.kupchenko.auth.service.dao.UserRepository;
 import me.kupchenko.auth.service.dto.SecurityUserDetails;
 import me.kupchenko.auth.service.model.Role;
 import me.kupchenko.auth.service.model.User;
-import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,7 +23,7 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) {
         log.info("Loading user for username: {}", username);
         try {
             User user = userRepository.findByName(username)
