@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
 }
 
 // Spring Boot’s dependency management can be used in a project without applying Spring Boot’s plugin to that project.
@@ -8,5 +9,16 @@ plugins {
 dependencyManagement {
     imports {
         mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'me.kupchenko'
+            artifactId = 'auth-service-api'
+
+            from components.java
+        }
     }
 }
