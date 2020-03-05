@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.kupchenko.auth.service.dao.UserRepository;
 import me.kupchenko.auth.service.dto.SecurityUserDetails;
+import me.kupchenko.auth.service.dto.UserDto;
+import me.kupchenko.auth.service.mapper.UserMapper;
 import me.kupchenko.auth.service.model.Role;
 import me.kupchenko.auth.service.model.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class UserService implements UserDetailsService {
     private UserRepository userRepository;
+    private UserMapper userMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
@@ -48,10 +51,14 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public User findUserByUsername(String username) {
+    public UserDto findUserByUsername(String username) {
         return userRepository.findByName(username)
+                .map(userMapper::userToUserDto)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-
+    public User findUserById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    }
 }
