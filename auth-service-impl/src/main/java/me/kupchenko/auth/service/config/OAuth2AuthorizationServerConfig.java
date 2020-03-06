@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -72,7 +74,15 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 
     @Bean
     public TokenStore tokenStore() {
-        return new JwtTokenStore(accessTokenConverter());
+        return new JwtTokenStore(accessTokenConverter()) {
+            @Override
+            public OAuth2AccessToken readAccessToken(String tokenValue) {
+                DefaultOAuth2AccessToken token = (DefaultOAuth2AccessToken) super.readAccessToken(tokenValue);
+                //This needs for disabling token expiration check
+                token.setExpiration(null);
+                return token;
+            }
+        };
     }
 
     @Bean
@@ -83,7 +93,6 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
         converter.setKeyPair(keyStoreKeyFactory.getKeyPair(keyStoreAlias)); //use asymmetric keys (Public and Private keys) to do the signing process.
         return converter;
     }
-
 
     @Bean
     public TokenEnhancer tokenEnhancer() {
