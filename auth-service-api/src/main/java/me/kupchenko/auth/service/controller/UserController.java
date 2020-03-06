@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@RequestMapping("/user")
+@RequestMapping("/users")
 public interface UserController {
     @GetMapping
     UserDto findUserByUsername(@RequestParam("username") String username);

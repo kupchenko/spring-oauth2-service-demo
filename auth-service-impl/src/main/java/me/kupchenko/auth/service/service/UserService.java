@@ -39,7 +39,7 @@ public class UserService implements UserDetailsService {
                     .map(SimpleGrantedAuthority::new)
                     .collect(Collectors.toList());
 
-            log.info("Got user: {}", user);
+            log.info("Got user: {}", user.getName());
             return SecurityUserDetails.builder()
                     .id(user.getId())
                     .username(user.getName())
