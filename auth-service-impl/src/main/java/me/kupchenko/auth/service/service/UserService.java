@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import me.kupchenko.auth.service.dao.UserRepository;
 import me.kupchenko.auth.service.dto.SecurityUserDetails;
 import me.kupchenko.auth.service.dto.UserDto;
+import me.kupchenko.auth.service.exception.UserNotFoundException;
 import me.kupchenko.auth.service.mapper.UserMapper;
 import me.kupchenko.auth.service.model.Role;
 import me.kupchenko.auth.service.model.User;
@@ -54,11 +55,12 @@ public class UserService implements UserDetailsService {
     public UserDto findUserByUsername(String username) {
         return userRepository.findByName(username)
                 .map(userMapper::userToUserDto)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException(username));
     }
 
-    public User findUserById(Long id) {
+    public UserDto findUserById(Long id) {
         return userRepository.findById(id)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                .map(userMapper::userToUserDto)
+                .orElseThrow(() -> new UserNotFoundException(String.valueOf(id)));
     }
 }
